@@ -1,0 +1,24 @@
+version: "3"
+services:
+  haproxy:
+    build:
+      context: ./haproxy-logging/
+      dockerfile: Dockerfile
+    ports:
+     - '80:80'
+    volumes:
+      - ./share/haproxy/haproxy.conf:/etc/haproxy.cfg
+      - ./share/haproxy/log/:/share/log/
+  nginx1:
+    image: nginx:stable-alpine
+    volumes:
+      - ./share/nginx1/index.html:/usr/share/nginx/html/index.html
+  nginx2:
+    image: nginx:stable-alpine
+    volumes:
+      - ./share/nginx2/index.html:/usr/share/nginx/html/index.html
+  nginx3:
+    image: nginx:stable-alpine
+    volumes:
+      - ./share/nginx3/index.html:/usr/share/nginx/html/index.html
+
