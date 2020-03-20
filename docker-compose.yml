@@ -2,7 +2,7 @@ version: "3"
 services:
   haproxy:
     build:
-      context: ./haproxy-logging/
+      context: ./
       dockerfile: Dockerfile
     ports:
      - '80:80'
